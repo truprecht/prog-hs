@@ -7,7 +7,7 @@ data Tree a = Branch a (Tree a) (Tree a) | Leaf a deriving Show
 
 depth :: Tree a -> Int
 depth (Leaf _) = 1
-depth (Branch _ t1 t2) = max (depth t1) (depth t2)
+depth (Branch _ t1 t2) = min (depth t1) (depth t2)
 
 paths :: Tree a -> Tree [a]
 paths = go []
